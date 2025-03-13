@@ -1,0 +1,10 @@
+{# templates/index.html #}
+{% extends "_base.html" %}
+{% block conteudo %}
+    <p><b>Frutas do dia:</b></p>
+    <ul>
+        <li>{{ frutas[0] }}</li> {# Os sinais { } se chamam moustache #}
+        <li>{{ frutas[1] }}</li>
+        <li>{{ frutas[2] }}</li>
+    </ul>
+{% endblock %}
