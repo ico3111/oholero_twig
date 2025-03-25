@@ -7,21 +7,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        main { @apply p-1 }
+        h1, h2, h3 { @apply text-5xl font-bold text-gray-800 tracking-wide mb-4 }
+        .header { @apply bg-red-800 w-full h-[8vh] text-neutral-100 flex justify-between items-center p-2 }
+        .header ul { @apply flex list-inside list-none gap-1 }
+        h2 { @apply text-4xl } 
+        h3 { @apply text-3xl } 
+        h4 { @apply text-2xl }
+        a { @apply text-neutral-100 bg-blue-500 p-1 rounded-lg m-1 }
+        input { @apply border-1 p-2 rounded-lg }
+    </style>
     <title>Dammnn lista de compras</title>
 </head>
 
 <body>
-    <h1>Twig :)</h1>
-    <p>Site 1000% top.</p>
-    {% if titulo %}
-    <h2>{{titulo}}</h2>
-    {% endif %}
-    <hr>
-    <a href="index.php">Inicial</a> |
-    <a href="compras.php">Compras</a>
-    <hr>
+    <header class="header">
+        <h1>Lista de compras - Twig</h1>
+        <nav>
+            <ul>
+                <li><a href="index.php">Inicial</a></li>
+                <li><a href="compras.php">Compras</a></li>
+                <li><a href="horario.php">Horário</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    {% if titulo %}<h2>{{titulo}}</h2>{% endif %}
+    <main>
     {% block conteudo %}{% endblock %}
+    </main>
 
 </body>
 
