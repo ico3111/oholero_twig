@@ -7,6 +7,6 @@ use Carbon\Carbon;
 
 echo $twig->render('horario.html', [
     'titulo' => 'Horários',
-    'horarioHoje' => Carbon::now(),
-    'dataAmanha' => Carbon::now()->addDay() 
+    'horarioHoje' => Carbon::now()->format('d/m/Y - H:m:s'),
+    'dataAmanha' => Carbon::now()->addDay()->format('d/m/Y')
 ]);

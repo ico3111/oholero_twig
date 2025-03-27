@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+
+<form action="compromissos_edit.php" method="POST">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="titulo" value="{{tituloCompromisso}}" required>
+    <input type="date" name="data" value="{{data}}" required>
+    <button type="submit">Enviar</button>
+</form>
+
+{%endblock%}

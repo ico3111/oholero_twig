@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+<p>Gerencie seus compromissos!! fiufiu!!!🎉🎉🎉</p>
+<h4>Adicionar compromisso</h4>
+<form action="compromissos_adc.php" method="post">
+    <input type="text" name="titulo" required>
+    <input type="date" name="data" required>
+    <button type="submit">Enviar</button>
+</form>
+<h4>Seus compromissos marcados para hoje</h4>
+<ul>
+    {% for compromisso in compromissos %}
+        {% if compromisso.data == data %}
+        <li>
+            <strong>Titulo: </strong> {{ compromisso.titulo }}<br>
+            <strong>Data: </strong> {{ compromisso.data }} <br>
+            <a href="compromissos_form.php?id={{ compromisso.id }}&titulo={{ compromisso.titulo }}&data={{ compromisso.data }}">Editar</a> - 
+            <a href="compromissos_excluir.php?id={{ compromisso.id }}">Excluir</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+<hr>
+<h4>Todos os compromissos</h4>
+<ul>
+    {% for compromisso in compromissos %}
+    
+    <li>
+        <strong>Titulo: </strong> {{compromisso.titulo}}<br>
+        <strong>Data: </strong> {{compromisso.data}} <br>
+        <a href="compromissos_form.php?id={{compromisso.id}}&titulo={{compromisso.titulo}}&data={{compromisso.data}}">Editar</a> - 
+        <a href="compromissos_excluir.php?id={{compromisso.id}}">Excluir</a>
+    </li>
+
+    {% endfor %}
+</ul>
+{%endblock%}
