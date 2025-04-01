@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 21/03/2025 às 01:07
+-- Host: localhost
+-- Tempo de geração: 01/04/2025 às 13:16
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -37,14 +37,27 @@ CREATE TABLE `compras` (
 --
 
 INSERT INTO `compras` (`id`, `item`) VALUES
-(4, 'abacati'),
-(5, 'masã'),
-(6, 'pineapple apple pen'),
-(7, 'laranza'),
-(8, 'jamal'),
-(9, 'rabanette'),
-(10, 'senora'),
-(11, 'kiui');
+(8, 'abacatetete');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `compromissos`
+--
+
+CREATE TABLE `compromissos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `data` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `compromissos`
+--
+
+INSERT INTO `compromissos` (`id`, `titulo`, `data`) VALUES
+(4, 'ensinar ptgs p kaua bas', '2025-04-01'),
+(8, 'pao', '2025-10-17');
 
 --
 -- Índices para tabelas despejadas
@@ -57,6 +70,12 @@ ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `compromissos`
+--
+ALTER TABLE `compromissos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -64,7 +83,13 @@ ALTER TABLE `compras`
 -- AUTO_INCREMENT de tabela `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `compromissos`
+--
+ALTER TABLE `compromissos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
