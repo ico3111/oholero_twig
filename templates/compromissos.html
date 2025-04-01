@@ -8,29 +8,25 @@
     <input type="date" name="data" required>
     <button type="submit">Enviar</button>
 </form>
+<hr>
 <h4>Seus compromissos marcados para hoje</h4>
 <ul>
     {% for compromisso in compromissos %}
         {% if compromisso.data == data %}
         <li>
-            <strong>Titulo: </strong> {{ compromisso.titulo }}<br>
-            <strong>Data: </strong> {{ compromisso.data }} <br>
-            <a href="compromissos_form.php?id={{ compromisso.id }}&titulo={{ compromisso.titulo }}&data={{ compromisso.data }}">Editar</a> - 
-            <a href="compromissos_excluir.php?id={{ compromisso.id }}">Excluir</a>
+            <strong>Titulo: </strong> {{ compromisso.titulo }} - <strong>Data: </strong> {{ compromisso.data }} |
+            <a href="compromissos_form.php?id={{ compromisso.id }}&titulo={{ compromisso.titulo }}&data={{ compromisso.data }}">Editar</a> - <a href="compromissos_excluir.php?id={{ compromisso.id }}">Excluir</a>
         </li>
         {% endif %}
     {% endfor %}
 </ul>
-<hr>
 <h4>Todos os compromissos</h4>
 <ul>
     {% for compromisso in compromissos %}
     
     <li>
-        <strong>Titulo: </strong> {{compromisso.titulo}}<br>
-        <strong>Data: </strong> {{compromisso.data}} <br>
-        <a href="compromissos_form.php?id={{compromisso.id}}&titulo={{compromisso.titulo}}&data={{compromisso.data}}">Editar</a> - 
-        <a href="compromissos_excluir.php?id={{compromisso.id}}">Excluir</a>
+        <strong>Titulo: </strong> {{compromisso.titulo}} - <strong>Data: </strong> {{compromisso.data}} |
+        <a href="compromissos_form.php?id={{compromisso.id}}&titulo={{compromisso.titulo}}&data={{compromisso.data}}">Editar</a> - <a href="compromissos_excluir.php?id={{compromisso.id}}">Excluir</a>
     </li>
 
     {% endfor %}
