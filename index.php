@@ -1,13 +1,11 @@
 <?php
 
-// Carrega o carregador do Twig
-require_once('twig_carregar.php');
+require_once('verifica_login.php');
 
-$frutas = ['abacaxi', 'maça', 'banana', 'malencia', 'estrogonoff de urubu'];
-$frutaHoje = $frutas[rand(0, 4)];
-
-//Mostra o template na tela
-echo $twig->render('index.html', [
-    'titulo' => 'Bem-Vindo',
-    'fruta' => $frutaHoje
-]);
+if (!isset($_GET['login']) || $_GET['login']) {
+    echo $twig->render('login.html');
+} else if (!$_GET['login']) {
+    echo $twig->render('login.html');
+} else {
+    echo $twig->render('erro.html', ["erro" => "Página não encontrada"]);
+}
