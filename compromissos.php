@@ -1,6 +1,7 @@
 <?php
 
 require_once('verifica_login.php');
+require_once('twig_carregar.php');
 require('inc/banco.php');
 
 use Carbon\Carbon;
@@ -14,5 +15,6 @@ $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
 echo $twig->render('compromissos.html', [
     'titulo' => 'Compromissos',
     'compromissos' => $comp,
-    'data' => Carbon::now()->format('Y-m-d')
+    'data' => Carbon::now()->format('Y-m-d'), 
+    'logado' => $logado
 ]);

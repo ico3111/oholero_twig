@@ -29,10 +29,13 @@
         <h1>Lista de compras - Twig</h1>
         <nav>
             <ul>
-                <li><a class="btn" href="index.php">Inicial</a></li>
+                {% if logado == 1 %}
+                <li><a class="btn" href="home.php">Inicial</a></li>
                 <li><a class="btn" href="compras.php">Compras</a></li>
                 <li><a class="btn" href="horario.php">Horário</a></li>
                 <li><a class="btn" href="compromissos.php">Compromissos</a></li>
+                <li><a class="btn" href="logout.php">Sair</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
