@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 01/04/2025 às 13:16
+-- Host: 127.0.0.1
+-- Tempo de geração: 17/04/2025 às 03:13
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -37,7 +37,9 @@ CREATE TABLE `compras` (
 --
 
 INSERT INTO `compras` (`id`, `item`) VALUES
-(8, 'abacatetete');
+(10, 'abacate'),
+(11, 'pão'),
+(12, 'cebola');
 
 -- --------------------------------------------------------
 
@@ -56,8 +58,27 @@ CREATE TABLE `compromissos` (
 --
 
 INSERT INTO `compromissos` (`id`, `titulo`, `data`) VALUES
-(4, 'ensinar ptgs p kaua bas', '2025-04-01'),
-(8, 'pao', '2025-10-17');
+(9, 'dormir', '2025-04-16'),
+(10, 'estudar', '3025-04-16');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `login` varchar(50) NOT NULL,
+  `senha` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `senha`) VALUES
+(1, 'admin', '$2y$10$5pvgDi6eHY8J4epVgDYMw.ksK3bTs6r07XNZUqH.DVPvukwnyqRe2');
 
 --
 -- Índices para tabelas despejadas
@@ -76,6 +97,13 @@ ALTER TABLE `compromissos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -83,13 +111,19 @@ ALTER TABLE `compromissos`
 -- AUTO_INCREMENT de tabela `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `compromissos`
 --
 ALTER TABLE `compromissos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
