@@ -5,12 +5,13 @@ require_once('twig_carregar.php');
 
 $nome = $_SESSION['user']['login'];
 
-$mensagem = isset($_GET['erro']) ?? $_GET['erro'];
-$mensagem = isset($_GET['sucesso']) ?? $_GET['sucesso'];
+$erro = $_GET['erro'] ?? null;
+$sucesso = $_GET['sucesso'] ?? null;
 
 echo $twig->render('user.html', [
     'titulo' => "Usuário $nome",
-    'mensagem' => $mensagem,
-    'nome' => $nome, 
+    'erro' => $erro,
+    'sucesso' => $sucesso,
+    'nome' => $nome,
     'logado' => $logado
 ]);
